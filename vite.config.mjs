@@ -49,7 +49,12 @@ export default defineConfig({
     ],
   },
   server: {
+    host: '0.0.0.0',
     port: 5576,
+    strictPort: true,
+    watch: {
+      usePolling: true,
+    },
   },
   css: {
     preprocessorOptions: {
