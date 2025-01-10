@@ -122,6 +122,8 @@ export default {
   async mounted() {
     if(this.productId) {
       try {
+        this.$loadingStore.isLoading = true;
+
         const token = localStorage.getItem(import.meta.env.VITE_TOKEN_KEY);
         const { data } = await ProductService.showData(token, this.productId);
 
@@ -131,12 +133,15 @@ export default {
         this.payload.category_id = data.data.category_id;
       } catch(error) {
         notifyError(error.response.data.message);
+      } finally {
+        this.$loadingStore.isLoading = false;
       }
     }
   },
   methods: {
     async fetchData() {
       try {
+        this.$loadingStore.isLoading = true;
         const token = localStorage.getItem(import.meta.env.VITE_TOKEN_KEY);
 
         const { data } = await CategoryService.fetchData(token, 1);
@@ -147,10 +152,13 @@ export default {
         }));
       } catch (error) {
         notifyError(error.response.data.message);
+      } finally {
+        this.$loadingStore.isLoading = false;
       }
     },
     async createData() {
       try {
+        this.$loadingStore.isLoading = true;
         const token = localStorage.getItem(import.meta.env.VITE_TOKEN_KEY);
 
         const { data } = await ProductService.createData(token, this.payload);
@@ -159,10 +167,13 @@ export default {
         this.$router.push({ 'name': 'CategoryDetails', 'params': {'id': this.payload.category_id} });
       } catch(error) {
         notifyError(error.response.data.message);
+      } finally {
+        this.$loadingStore.isLoading = false;
       }
     },
     async updateData() {
       try {
+        this.$loadingStore.isLoading = true;
         const token = localStorage.getItem(import.meta.env.VITE_TOKEN_KEY);
 
         const { data } = await ProductService.updateData(token, this.payload, this.productId);
@@ -171,6 +182,8 @@ export default {
         this.$router.push({ 'name': 'Index' });
       } catch(error) {
         notifyError(error.response.data.message);
+      } finally {
+        this.$loadingStore.isLoading = false;
       }
     }
   }

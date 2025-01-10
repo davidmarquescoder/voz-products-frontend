@@ -94,6 +94,7 @@ export default {
   methods: {
     async showData(id) {
       try {
+        this.$loadingStore.isLoading = true;
         const token = localStorage.getItem(import.meta.env.VITE_TOKEN_KEY);
 
         const { data } = await CategoryService.showData(token, id);
@@ -102,10 +103,13 @@ export default {
         notifySuccess(data.message);
       } catch(error) {
         notifyError(error.response.data.message);;
+      } finally {
+        this.$loadingStore.isLoading = false;
       }
     },
     async deleteData(id) {
       try {
+        this.$loadingStore.isLoading = true;
         const token = localStorage.getItem(import.meta.env.VITE_TOKEN_KEY);
 
         await ProductService.deleteData(token, id);
@@ -114,6 +118,8 @@ export default {
         this.showData(this.$route.params.id);
       } catch(error) {
         notifyError(error.response.data.message);;
+      } finally {
+        this.$loadingStore.isLoading = false;
       }
     }
   }

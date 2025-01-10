@@ -67,18 +67,23 @@ export default {
   async mounted() {
     if(this.categoryId) {
       try {
+        this.$loadingStore.isLoading = true;
+
         const token = localStorage.getItem(import.meta.env.VITE_TOKEN_KEY);
         const { data } = await CategoryService.showData(token, this.categoryId);
 
         this.payload.name = data.data.name;
       } catch(error) {
         notifyError(error.response.data.message);
+      } finally {
+        this.$loadingStore.isLoading = false;
       }
     }
   },
   methods: {
     async createData() {
       try {
+        this.$loadingStore.isLoading = true;
         const token = localStorage.getItem(import.meta.env.VITE_TOKEN_KEY);
 
         const { data } = await CategoryService.createData(token, this.payload);
@@ -87,10 +92,13 @@ export default {
         this.$router.push({ 'name': 'CategoryDetails', 'params': {'id': data.data.id} });
       } catch(error) {
         notifyError(error.response.data.message);
+      } finally {
+        this.$loadingStore.isLoading = false;
       }
     },
     async updateData() {
       try {
+        this.$loadingStore.isLoading = true;
         const token = localStorage.getItem(import.meta.env.VITE_TOKEN_KEY);
 
         const { data } = await CategoryService.updateData(token, this.payload, this.categoryId);
@@ -99,6 +107,8 @@ export default {
         this.$router.push({ 'name': 'Index' });
       } catch(error) {
         notifyError(error.response.data.message);
+      } finally {
+        this.$loadingStore.isLoading = false;
       }
     }
   }

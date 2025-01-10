@@ -91,6 +91,7 @@ import CategoryService from '@/services/category/CategoryService';
     methods: {
       async fetchData() {
         try {
+          this.$loadingStore.isLoading = true;
           const token = localStorage.getItem(import.meta.env.VITE_TOKEN_KEY);
 
           const { data } = await CategoryService.fetchData(token, this.page);
@@ -99,10 +100,13 @@ import CategoryService from '@/services/category/CategoryService';
           this.totalPages = data.data.last_page;
         } catch(error) {
           notifyError(error.response.data.message);;
+        } finally {
+          this.$loadingStore.isLoading = false;
         }
       },
       async deleteData(id) {
         try {
+          this.$loadingStore.isLoading = true;
           const token = localStorage.getItem(import.meta.env.VITE_TOKEN_KEY);
 
           await CategoryService.deleteData(token, id);
@@ -111,6 +115,8 @@ import CategoryService from '@/services/category/CategoryService';
           await this.fetchData();
         } catch(error) {
           notifyError(error.response.data.message);;
+        } finally {
+          this.$loadingStore.isLoading = false;
         }
       },
       async onPageChange() {
