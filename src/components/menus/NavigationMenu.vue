@@ -39,6 +39,8 @@ import AuthService from '@/services/auth/AuthService';
     methods: {
       async handlerLogout() {
         try {
+          this.$loadingStore.isLoading = true;
+
           const token = localStorage.getItem(import.meta.env.VITE_TOKEN_KEY);
           await AuthService.logout(token);
 
@@ -48,6 +50,8 @@ import AuthService from '@/services/auth/AuthService';
           notifySuccess('Logout realizado com sucesso!');
         } catch(error) {
           notifyError(error.response.data.message);;
+        } finally {
+          this.$loadingStore.isLoading = false;
         }
       }
     }
