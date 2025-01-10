@@ -14,6 +14,26 @@
 
     <template #append>
       <v-btn
+        text="Backend"
+        size="small"
+        class="mx-1"
+        color="warning"
+        variant="text"
+        append-icon="mdi-github"
+        href="https://github.com/davidmarquescoder/teste-voz-backEnd"
+        target="_blank"
+      />
+      <v-btn
+        text="Frontend"
+        size="small"
+        class="mx-1"
+        color="warning"
+        variant="text"
+        append-icon="mdi-github"
+        href="https://github.com/davidmarquescoder/voz-products-frontend"
+        target="_blank"
+      />
+      <v-btn
         text="Sair"
         size="small"
         class="mx-10"
