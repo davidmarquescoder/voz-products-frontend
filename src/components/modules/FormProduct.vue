@@ -36,7 +36,7 @@
         </v-col>
       </v-row>
 
-      <v-row>
+      <v-row class="hidden-sm-and-down">
         <v-col>
           <v-text-field
             v-model="payload.price"
@@ -49,6 +49,37 @@
           />
         </v-col>
 
+        <v-col>
+          <v-select
+            v-model="payload.category_id"
+            color="warning"
+            prepend-inner-icon="mdi-tag"
+            variant="outlined"
+            label="Informe a categoria do produto"
+            :items="categories"
+            item-title="name"
+            item-value="id"
+            rounded
+            @click="fetchData"
+          />
+        </v-col>
+      </v-row>
+
+      <v-row class="hidden-md-and-up">
+        <v-col>
+          <v-text-field
+            v-model="payload.price"
+            color="warning"
+            prepend-inner-icon="mdi-cash-multiple"
+            variant="outlined"
+            label="Informe o preço do produto"
+            type="number"
+            rounded
+          />
+        </v-col>
+      </v-row>
+      
+      <v-row class="hidden-md-and-up">
         <v-col>
           <v-select
             v-model="payload.category_id"
