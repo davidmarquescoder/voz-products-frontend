@@ -1,14 +1,14 @@
 <template>
-  <v-app-bar :elevation="2">
+  <v-app-bar :elevation="0">
     <template #prepend>
       <v-icon
         color="warning"
-        class="ml-6"
+        class="ml-4"
         icon="mdi-view-dashboard"
       />
     </template>
 
-    <v-app-bar-title class="font-weight-light">
+    <v-app-bar-title class="font-weight-light hidden-sm-and-down">
       DASH<span class="text-warning font-weight-bold">VOZ</span>
     </v-app-bar-title>
 
@@ -36,7 +36,7 @@
       <v-btn
         text="Sair"
         size="small"
-        class="mx-10"
+        class="mx-2 mx-lg-10"
         color="warning"
         variant="outlined"
         append-icon="mdi-logout"
