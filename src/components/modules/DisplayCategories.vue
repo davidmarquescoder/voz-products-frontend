@@ -19,13 +19,15 @@
     <v-card
       v-for="(category, index) in categories"
       :key="index"
-      class="bg-background w-25 mx-2 my-2 d-flex flex-column align-center justify-center border border-opacity-50 border-warning"
+      class="bg-background mx-2 my-2 d-flex flex-column align-center justify-center border border-opacity-50 border-warning"
       rounded="lg"
-      height="300"
+      height="240"
+      min-width="270"
+      max-width="370"
     >
       <v-card-item class="border rounded-lg bg-warning mb-6">
         <v-icon
-          size="46"
+          size="36"
           icon="mdi-tag-hidden"
         />
       </v-card-item>

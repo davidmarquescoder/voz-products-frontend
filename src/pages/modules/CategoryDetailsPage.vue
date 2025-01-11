@@ -37,19 +37,21 @@
       max-width="none"
     >
       <v-container
-        class="bg-surface d-flex align-center justify-center border rounded-lg border-warning"
-        max-width="none"
+        class="bg-surface d-flex flex-wrap align-center justify-center border rounded-lg border-warning"
+        max-width="1200"
       >
         <v-card
           v-for="(product, index) in category.products"
           :key="index"
-          class="bg-background w-50 mx-2 my-2 d-flex flex-column align-center justify-center border border-opacity-50 border-warning"
+          class="bg-background mx-2 my-2 d-flex flex-column align-center justify-center border border-opacity-50 border-warning"
           rounded="lg"
-          height="300"
+          height="240"
+          min-width="270"
+          max-width="370"
         >
           <v-card-item class="border rounded-lg bg-warning mb-6">
             <v-icon
-              size="46"
+              size="36"
               icon="mdi-package-variant-closed"
             />
           </v-card-item>
