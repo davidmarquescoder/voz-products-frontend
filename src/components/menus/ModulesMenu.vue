@@ -7,23 +7,58 @@
     fullscreen
   >
     <template #activator="{ props: activatorProps }">
-      <v-card
-        v-bind="activatorProps"
-        class="w-50 mx-2 d-flex flex-column align-center justify-center border border-opacity-50 border-warning"
-        rounded="lg"
-        height="300"
-      >
-        <v-card-item class="border rounded-lg bg-warning mb-6">
-          <v-icon
-            size="46"
-            :icon="module.icon_card"
-          />
-        </v-card-item>
-
-        <v-card-title class="text-uppercase font-weight-light">
-          {{ module.title_card }}
-        </v-card-title>
-      </v-card>
+      <div class="hidden-md-and-up">
+        <v-card
+          v-bind="activatorProps"
+          class="mx-2 my-2 d-flex flex-column align-center justify-center border border-opacity-50 border-warning"
+          rounded="lg"
+          height="300"
+          min-width="200"
+          max-width="300"
+        >
+          <v-card-item class="border rounded-lg bg-warning mb-6">
+            <v-icon
+              size="46"
+              :icon="module.icon_card"
+              class="hidden-sm-and-down"
+            />
+            <v-icon
+              size="26"
+              :icon="module.icon_card"
+              class="hidden-md-and-up"
+            />
+          </v-card-item>
+  
+          <v-card-title class="text-uppercase font-weight-light">
+            {{ module.title_card }}
+          </v-card-title>
+        </v-card>
+      </div>
+      <div class="hidden-sm-and-down w-100 my-2 mx-1">
+        <v-card
+          v-bind="activatorProps"
+          class="mx-2 w-100 my-2 d-flex flex-column align-center justify-center border border-opacity-50 border-warning"
+          rounded="lg"
+          height="300"
+        >
+          <v-card-item class="border rounded-lg bg-warning mb-6">
+            <v-icon
+              size="46"
+              :icon="module.icon_card"
+              class="hidden-sm-and-down"
+            />
+            <v-icon
+              size="26"
+              :icon="module.icon_card"
+              class="hidden-md-and-up"
+            />
+          </v-card-item>
+  
+          <v-card-title class="text-uppercase font-weight-light">
+            {{ module.title_card }}
+          </v-card-title>
+        </v-card>
+      </div>
     </template>
 
     <v-card>

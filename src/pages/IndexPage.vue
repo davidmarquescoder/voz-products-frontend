@@ -2,11 +2,12 @@
   <NavigationMenu />
 
   <v-container
-    class="my-4 d-flex align-center"
+    class="d-flex flex-wrap flex-md-nowrap align-center justify-center"
     max-width="1250"
   >
     <ModulesMenu />
   </v-container>
+
   <v-container
     class="my-4 d-flex flex-column"
     max-width="none"
