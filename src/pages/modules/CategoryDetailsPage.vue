@@ -47,7 +47,7 @@
           rounded="lg"
           height="240"
           min-width="270"
-          max-width="370"
+          max-width="270"
         >
           <v-card-item class="border rounded-lg bg-warning mb-6">
             <v-icon
@@ -61,10 +61,18 @@
           </v-card-title>
 
           <v-card-actions class="d-flex align-center justify-center w-100">
+            <v-btn
+              :to="{'name': 'ProductDetails', 'params': {id: product.id}}"
+              variant="tonal"
+              icon="mdi-eye"
+              rounded="lg"
+              size="x-small"
+              color="white"
+            />
+
             <UpdateProductMenu :productId="product.id" />
 
             <v-btn
-              :to="{'name': '', 'params': ''}"
               variant="tonal"
               icon="mdi-trash-can-outline"
               rounded="lg"

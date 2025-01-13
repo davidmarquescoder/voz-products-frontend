@@ -23,7 +23,7 @@
       rounded="lg"
       height="240"
       min-width="270"
-      max-width="370"
+      max-width="270"
     >
       <v-card-item class="border rounded-lg bg-warning mb-6">
         <v-icon

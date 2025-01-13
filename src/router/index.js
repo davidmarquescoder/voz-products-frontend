@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import IndexPage from '@/pages/IndexPage.vue'
 import LoginPage from '@/pages/auth/LoginPage.vue'
 import CategoryDetailsPage from '@/pages/modules/CategoryDetailsPage.vue'
+import ProductDetailsPage from '@/pages/modules/ProductDetailsPage.vue'
 
 // Middlewares
 import authGuard from '@/middlewares/auth'
@@ -28,6 +29,12 @@ const router = createRouter({
       path: '/category/details/:id',
       name: 'CategoryDetails',
       component: CategoryDetailsPage,
+      beforeEnter: authGuard
+    },
+    {
+      path: '/product/details/:id',
+      name: 'ProductDetails',
+      component: ProductDetailsPage,
       beforeEnter: authGuard
     },
   ],
